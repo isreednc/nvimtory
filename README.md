@@ -18,7 +18,7 @@ mv ~/.config/nvim ~/.config/nvim_backup_$(date +%Y%m%d_%H%M%S)
 rm -rf ~/.config/nvim
 
 # 3. Install nvimtory
-git clone https://github.com/yourusername/hypervim ~/.config/nvim
+git clone https://github.com/isreednc/nvimtory ~/.config/nvim
 ```
 
 ### 📥 Install JetBrains Mono font:
