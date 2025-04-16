@@ -3,6 +3,7 @@ require("isreed.lazy")
 
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
+vim.opt.guifont = "JetBrainsMono:h12"
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })

@@ -53,7 +53,7 @@ return {
         local servers = {
           pyright = {},
           gopls = {},
-          tsserver = {},
+          ts_ls = {},
           clangd = {},
         }
 
@@ -87,6 +87,43 @@ return {
             vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
             vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
         end,   
+    },
+
+    -- Live Server
+    {
+        'barrett-ruth/live-server.nvim',
+        build = 'npm install -g live-server',
+        cmd = { 'LiveServerStart', 'LiveServerStop' },
+        config = true
+    },
+
+    --| Word Processing |--
+    -- Pencil
+    {
+        'preservim/vim-pencil',
+        ft = { 'markdown', 'text', 'rst' },
+        config = function()
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = { 'markdown', 'text', 'rst' },
+                callback = function()
+                    vim.cmd('SoftPencil')
+                end,
+            })
+        end,
+    },
+
+    -- Goyo
+    {
+        "junegunn/goyo.vim",
+        cmd = "Goyo",
+        config = function()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "GoyoEnter",
+          callback = function()
+            vim.wo.spell = true
+          end,
+        })
+        end
     }
 
 }
